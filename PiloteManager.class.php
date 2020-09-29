@@ -8,7 +8,7 @@ class PiloteManager
 
 	public function __construct($db)
 	{
-		$this->setDB($db); // on passe par un setter 
+		$this->setDB($db); // on passe par un setter
 	}
 	// méthodes CRUD
 
@@ -51,8 +51,11 @@ class PiloteManager
 		$q = $this->_db->query('SELECT NumP, NameP, Address, Salary FROM PILOT Where NumP = '.$NumP);
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-		// On retourne un objet de type Pilote
-		return new Pilote($donnees);
+		// On retourne un objet de type Pilote si on a récupéré les infos
+		if (is_array($donnees))
+		{
+			return new Pilote($donnees);
+		}
 	}	
 
 	// Autres méthodes outils 

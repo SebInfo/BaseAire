@@ -44,7 +44,14 @@
 	if (isset($_POST['unPilote']) && $_POST['codePilote'] != 0)
 	{
 		// On affiche l'objet pilote
-		$resultat=$manager->get($_POST['codePilote']);
+		try
+		{
+			$resultat=$manager->get($_POST['codePilote']);
+		}
+		catch (Exception $e)
+		{
+			echo $e->getMessage();
+		}
 	}
 
 ?>
