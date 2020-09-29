@@ -27,6 +27,7 @@
 		unset($resultat);
 	}
 
+	/* Cas du bouton lister */ 
 	if (isset($_POST['lister']))
 	{
 		// On récupère la liste des pilotes et on met les résultats dans un tableau
@@ -38,6 +39,14 @@
 			$resultat .= $unPilote."<br>";
 		}
 	}
+
+	/* Cas du bouton afficher un pilote depuis son numéro */
+	if (isset($_POST['unPilote']) && $_POST['codePilote'] != 0)
+	{
+		// On affiche l'objet pilote
+		$resultat=$manager->get($_POST['codePilote']);
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,9 +63,25 @@
 					<input type="submit" name="lister" value="Lister les pilotes">
 				</li>
 				<li>
-					<label>Recherche d'un pilote</label>
-					<input type="number" id="unPilote" name="numPilote">
+					<label for="codePilote">Numéro du pilote :
+						<input type="number" id="codePilote" name="codePilote">
+					</label>
 					<input type="submit" name="unPilote" value="Afficher">
+				</li>
+				<li>
+					<label for="numPilote">Numéro
+						<input type="number" id="numPilote" name="numPilote">
+					</label>
+					<label for="nomPilote">Nom du pilote (nom et prénom)
+						<input type="text" name="nomPilote" placeholder="Prénom et nom du pilote">
+					</label>
+					<label for="adressePilote">Adresse du pilote
+						<input type="text" name="adressePilote" placeholder="Adresse du pilote">
+					</label>
+					<label for="salairePilote">Salaire du pilote
+						<input type="number" name="salairePilote" min="2000" max="30000">
+					</label>
+					<input type="submit" name="unPilote" value="Ajouter">
 				</li>
 			</ol>
 		</fieldset>		
