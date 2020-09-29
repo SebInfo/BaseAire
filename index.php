@@ -43,15 +43,7 @@
 	/* Cas du bouton afficher un pilote depuis son numéro */
 	if (isset($_POST['unPilote']) && $_POST['codePilote'] != 0)
 	{
-		// On affiche l'objet pilote
-		try
-		{
-			$resultat=$manager->get($_POST['codePilote']);
-		}
-		catch (Exception $e)
-		{
-			echo $e->getMessage();
-		}
+		$resultat=$manager->get($_POST['codePilote']);
 	}
 
 ?>
@@ -99,6 +91,8 @@
 	{
 		echo $resultat;
 		unset($resultat);
+		unset($_POST['lister']);
+		unset($_POST['unPilote']);
 	}
 	?>
 </body>
