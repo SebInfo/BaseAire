@@ -51,6 +51,7 @@
 <html>
 <head>
 	<title> Accès et CRUD avec la table Pilote </title>
+	<link rel="stylesheet" href="styles.css">
 	<meta charset="utf-8">
 </head>
 <body>
@@ -62,24 +63,19 @@
 					<input type="submit" name="lister" value="Lister les pilotes">
 				</li>
 				<li>
-					<label for="codePilote">Numéro du pilote :
-						<input type="number" id="codePilote" name="codePilote">
-					</label>
+					<label for="codePilote">Numéro du pilote :</label>
+					<input type="number" id="codePilote" name="codePilote">
 					<input type="submit" name="unPilote" value="Afficher">
 				</li>
 				<li>
-					<label for="numPilote">Numéro
-						<input type="number" id="numPilote" name="numPilote">
-					</label>
-					<label for="nomPilote">Nom du pilote (nom et prénom)
-						<input type="text" name="nomPilote" placeholder="Prénom et nom du pilote">
-					</label>
-					<label for="adressePilote">Adresse du pilote
-						<input type="text" name="adressePilote" placeholder="Adresse du pilote">
-					</label>
-					<label for="salairePilote">Salaire du pilote
-						<input type="number" name="salairePilote" min="2000" max="30000">
-					</label>
+					<label for="numPilote">Numéro</label>
+					<input type="number" id="numPilote" name="numPilote">
+					<label for="nomPilote">Nom du pilote</label>
+					<input type="text" name="nomPilote" placeholder="Prénom et nom du pilote">
+					<label for="adressePilote">Adresse du pilote</label>
+					<input type="text" name="adressePilote" placeholder="Adresse du pilote">
+					<label for="salairePilote">Salaire du pilote</label>
+					<input type="number" name="salairePilote" min="2000" max="30000">
 					<input type="submit" name="unPilote" value="Ajouter">
 				</li>
 			</ol>
