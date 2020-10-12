@@ -2,7 +2,6 @@
 // Classe qui gère la fabrication d'un objet Pilote
 // Et gère les caractéristiques de cet objet (attributs & méthodes)
 // Un classe = un rôle
-
 class Pilote
 {
 	// Atrributs d'un pilote
@@ -19,7 +18,8 @@ class Pilote
 		$this->hydrate($donnees);
 	}
 
-
+	// Méthode hydrate qui fait correspondre via les setters
+	// Les champs et les attributs
 	public function hydrate(array $donnees)
 	{
 		// L'hydratation se fait toujours via les mutateurs
