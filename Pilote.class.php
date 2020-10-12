@@ -23,7 +23,8 @@ class Pilote
 	public function hydrate(array $donnees)
 	{
 		// L'hydratation se fait toujours via les mutateurs
-		foreach ($donnees as $key => $value) {
+		foreach ($donnees as $key => $value) 
+		{
 			$method = 'set'.$key;
 			if (method_exists($this, $method))
 			{

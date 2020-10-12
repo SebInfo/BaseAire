@@ -1,14 +1,47 @@
 <?php
 
 // Classe qui va gérer la manipulation des objets Pilotes et faire le lien avec la BDD
-class PiloteManager
+class PiloteManager implements iterator 
 {
 	// Le seul attribut de cette classe Manager
 	private $_db;
+	private $_listePilote;
+	private $_pos;
 
 	public function __construct($db)
 	{
-		$this->setDB($db); // on passe par un setter 
+		$this->setDB($db); // on passe par un setter
+		$this->_listePilote = $this->getList();
+		$this->_pos = 0;
+	}
+
+	// Méthodes de la classe Itérator
+	// Que l'on doit définir
+
+	public function current()
+	{
+		if($this->valid())
+			return $this->_listePilote[$this->_pos];
+	}
+
+	public function key()
+	{
+		return $this->_pos;
+	}
+
+	public function next()
+	{
+		++$this->_pos;
+	}
+
+	public function rewind()
+	{
+		$this->_pos = 0;
+	}
+
+	public function valid()
+	{
+		return isset($this->_listePilote[$this->_pos]);
 	}
 	// méthodes CRUD
 
@@ -51,8 +84,11 @@ class PiloteManager
 		$q = $this->_db->query('SELECT NumP, NameP, Address, Salary FROM PILOT Where NumP = '.$NumP);
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-		// On retourne un objet de type Pilote
-		return new Pilote($donnees);
+		// On retourne un objet de type Pilote si on a récupéré les infos
+		if (is_array($donnees))
+		{
+			return new Pilote($donnees);
+		}
 	}	
 
 	// Autres méthodes outils 
