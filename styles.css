@@ -54,7 +54,8 @@ form label {
 
 form input, form textarea {
 	background: #ffffff;
-	border: none;
+	border: 2px;
+	margin: 10px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-khtml-border-radius: 3px;
@@ -65,14 +66,6 @@ form input, form textarea {
 	width: 220px;
 }
 
-form input[type="submit"]{
-	background: green;
-	display: block;
-	font-size: 1em;
-	font: "Times New Roman", Times, serif;
-	width: 200px;
-	margin: auto;
-}
 
 form input:focus, form textarea:focus {
 	background: #eaeaea;
@@ -84,4 +77,13 @@ form input:invalid {
 
 form input:valid {
 	border:1px solid green;
+}
+
+form input[type="submit"] {
+	background: #40bf40;
+	display: block;
+	font-size: 1em;
+	font: "Times New Roman", Times, serif;
+	width: 200px;
+	margin: auto;
 }
